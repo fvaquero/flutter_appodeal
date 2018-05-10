@@ -1,0 +1,108 @@
+PODS:
+  - Appodeal (2.1.10):
+    - Appodeal/Full (= 2.1.10)
+  - Appodeal/AdColonyAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/AmazonAdsAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/AppLovinAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/Banner (2.1.10):
+    - Appodeal/AmazonAdsAdapter
+    - Appodeal/AppLovinAdapter
+    - Appodeal/FacebookAudienceAdapter
+    - Appodeal/GoogleAdMobAdapter
+    - Appodeal/InMobiAdapter
+    - Appodeal/MyTargetAdapter
+    - Appodeal/StartAppAdapter
+    - Appodeal/TwitterMoPubAdapter
+    - Appodeal/YandexAdapter
+  - Appodeal/ChartboostAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/Core (2.1.10)
+  - Appodeal/FacebookAudienceAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/FlurryAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/Full (2.1.10):
+    - Appodeal/Banner
+    - Appodeal/Core
+    - Appodeal/Interstitial
+    - Appodeal/Native
+    - Appodeal/Video
+  - Appodeal/GoogleAdMobAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/InMobiAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/Interstitial (2.1.10):
+    - Appodeal/AmazonAdsAdapter
+    - Appodeal/FacebookAudienceAdapter
+    - Appodeal/GoogleAdMobAdapter
+    - Appodeal/InMobiAdapter
+    - Appodeal/Video
+    - Appodeal/YandexAdapter
+  - Appodeal/IronSource (2.1.10):
+    - Appodeal/Core
+  - Appodeal/MobvistaAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/MyTargetAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/Native (2.1.10):
+    - Appodeal/AppLovinAdapter
+    - Appodeal/FacebookAudienceAdapter
+    - Appodeal/FlurryAdapter
+    - Appodeal/InMobiAdapter
+    - Appodeal/MyTargetAdapter
+    - Appodeal/PubnativeAdapter
+    - Appodeal/StartAppAdapter
+    - Appodeal/TwitterMoPubAdapter
+  - Appodeal/PubnativeAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/StartAppAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/TapjoyAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/TwitterMoPubAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/UnityAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/Video (2.1.10):
+    - Appodeal/AdColonyAdapter
+    - Appodeal/AppLovinAdapter
+    - Appodeal/ChartboostAdapter
+    - Appodeal/InMobiAdapter
+    - Appodeal/IronSource
+    - Appodeal/MobvistaAdapter
+    - Appodeal/MyTargetAdapter
+    - Appodeal/StartAppAdapter
+    - Appodeal/TapjoyAdapter
+    - Appodeal/TwitterMoPubAdapter
+    - Appodeal/UnityAdapter
+    - Appodeal/VungleAdapter
+  - Appodeal/VungleAdapter (2.1.10):
+    - Appodeal/Core
+  - Appodeal/YandexAdapter (2.1.10):
+    - Appodeal/Core
+  - Flutter (1.0.0)
+  - flutter_appodeal (0.0.1):
+    - Appodeal
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Pods/.symlinks/flutter/ios`)
+  - flutter_appodeal (from `Pods/.symlinks/plugins/flutter_appodeal/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Pods/.symlinks/flutter/ios
+  flutter_appodeal:
+    :path: Pods/.symlinks/plugins/flutter_appodeal/ios
+
+SPEC CHECKSUMS:
+  Appodeal: 11189f1fcc76084707f6d9c5e2a2cb4e6768bdd5
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  flutter_appodeal: a225602eaf073da04a1788cd6aac1a21086914cc
+
+PODFILE CHECKSUM: 028fe5590dcb8ffd838e4b21758b613901a1d92c
+
+COCOAPODS: 1.4.0
