@@ -9,7 +9,7 @@ For help getting started with Flutter, view our online
 
 For help on editing plugin code, view the [documentation](https://flutter.io/platform-plugins/#edit-code).
 
-You need to configure your apps first you use this plugin. Please refer to (Appodeal|https://www.appodeal.com/) documentation to get your apps configured
+You need to configure your apps first you use this plugin. Please refer to [Appodeal](https://www.appodeal.com/) documentation to get your apps configured
 If you have any problems configuring your Flutter project, please take a look to Example project in the plugin code.
 
 ## Features
