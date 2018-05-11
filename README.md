@@ -19,33 +19,28 @@ import 'package:flutter_appodeal/flutter_appodeal.dart';
 
 Declare your listener to get notified about RewardedVideos callbacks
 ``` dart
-      FlutterAppodeal.instance.videoListener =
-          (RewardedVideoAdEvent event, {String rewardType, int rewardAmount}) {
-        print("RewardedVideoAd event $event");
-        setState(() {
-          videoState = "State $event";
-        });
-      };
+  FlutterAppodeal.instance.videoListener = (RewardedVideoAdEvent event, {String rewardType, int rewardAmount}) {
+    print("RewardedVideoAd event $event");
+    setState(() {
+      videoState = "State $event";
+    });
+  };
 ```
 
 Initialize the plugin with your App Keys
 ``` dart
-List<AppodealAdType> types = new List<AppodealAdType>();
-      types.add(AppodealAdType.AppodealAdTypeInterstitial);
-      types.add(AppodealAdType.AppodealAdTypeRewardedVideo);
-      // You should use here your APP Key from Appodeal
-      await FlutterAppodeal.instance.initialize(
-          Platform.isIOS
-              ? 'iOSAPPKEY'
-              : 'ANDROIDAPPKEY',
-          types);
+  List<AppodealAdType> types = new List<AppodealAdType>();
+  types.add(AppodealAdType.AppodealAdTypeInterstitial);
+  types.add(AppodealAdType.AppodealAdTypeRewardedVideo);
+
+   // You should use here your APP Key from Appodeal
+   await FlutterAppodeal.instance.initialize(Platform.isIOS ? 'IOSAPPKEY' : 'ANDROIDAPPKEY', types);
 ```
 
 And the you can use it in your code
 ``` dart
   void loadInterstital() async {
-    bool loaded = await FlutterAppodeal.instance
-        .isLoaded(AppodealAdType.AppodealAdTypeInterstitial);
+    bool loaded = await FlutterAppodeal.instance.isLoaded(AppodealAdType.AppodealAdTypeInterstitial);
     if (loaded) {
       FlutterAppodeal.instance.showInterstitial();
     }else{
@@ -53,9 +48,6 @@ And the you can use it in your code
     }
   }
 ```
-
-
-
 
 ## Features
 
