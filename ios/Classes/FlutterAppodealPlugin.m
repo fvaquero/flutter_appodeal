@@ -1,5 +1,9 @@
 #import "FlutterAppodealPlugin.h"
-#import <Appodeal/Appodeal.h>
+
+@interface FlutterAppodealPlugin(){
+    FlutterMethodChannel* channel;
+}
+@end
 
 @implementation FlutterAppodealPlugin
 
@@ -8,11 +12,17 @@
 }
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  FlutterMethodChannel* channel = [FlutterMethodChannel
+    FlutterMethodChannel *channel = [FlutterMethodChannel
       methodChannelWithName:@"flutter_appodeal"
             binaryMessenger:[registrar messenger]];
-  FlutterAppodealPlugin* instance = [[FlutterAppodealPlugin alloc] init];
-  [registrar addMethodCallDelegate:instance channel:channel];
+    FlutterAppodealPlugin* instance = [[FlutterAppodealPlugin alloc] init];
+    [instance setChannel:channel];
+    [Appodeal setRewardedVideoDelegate:instance];
+    [registrar addMethodCallDelegate:instance channel:channel];
+}
+
+- (void) setChannel:(FlutterMethodChannel*) chan{
+    channel = chan;
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
@@ -65,6 +75,32 @@
             break;
     }
     return AppodealShowStyleInterstitial;
+}
+
+#pragma mark - RewardedVideo Delegate
+
+- (void)rewardedVideoDidLoadAd {
+    [channel invokeMethod:@"onRewardedVideoLoaded" arguments:nil];
+}
+
+- (void)rewardedVideoDidFailToLoadAd {
+    [channel invokeMethod:@"onRewardedVideoFailedToLoad" arguments:nil];
+}
+
+- (void)rewardedVideoDidPresent {
+    [channel invokeMethod:@"onRewardedVideoPresent" arguments:nil];
+}
+
+- (void)rewardedVideoWillDismiss {
+    [channel invokeMethod:@"onRewardedVideoWillDismiss" arguments:nil];
+}
+
+- (void)rewardedVideoDidFinish:(NSUInteger)rewardAmount name:(NSString *)rewardName {
+    NSDictionary *params = rewardName != nil ? @{
+                                                 @"rewardAmount" : @(rewardAmount),
+                                                 @"rewardType" : rewardName
+                                                 }: nil;
+    [channel invokeMethod:@"onRewardedVideoFinished" arguments: params];
 }
 
 @end

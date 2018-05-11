@@ -12,6 +12,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  String videoState;
+
   @override
   initState() {
     super.initState();
@@ -25,12 +28,16 @@ class _MyAppState extends State<MyApp> {
       List<AppodealAdType> types = new List<AppodealAdType>();
       types.add(AppodealAdType.AppodealAdTypeInterstitial);
       types.add(AppodealAdType.AppodealAdTypeRewardedVideo);
+      FlutterAppodeal.instance.videoListener =
+          (RewardedVideoAdEvent event, {String rewardType, int rewardAmount}) {
+        print("RewardedVideoAd event $event");
+        setState(() {
+          videoState = "State $event";
+        });
+      };
       // You should use here your APP Key from Appodeal
-      await FlutterAppodeal.initialize(
-          Platform.isIOS
-              ? 'iOSAPPKEY'
-              : 'ANDROIDAPPKEY',
-          types);
+      await FlutterAppodeal.instance
+          .initialize(Platform.isIOS ? 'IOSAPPKEY' : 'ANDROIDAPPKEY', types);
     } on PlatformException {}
 
     // If the widget was removed from the tree while the asynchronous platform
@@ -46,48 +53,51 @@ class _MyAppState extends State<MyApp> {
     return new MaterialApp(
         home: new Scaffold(
       appBar: new AppBar(
-        title: new Text('Plugin example app'),
+        title: new Text('$videoState'),
       ),
       body: new Padding(
         padding: new EdgeInsets.only(top: 40.0),
         child: new Center(
             child: new Column(children: <Widget>[
-              new Container(height: 100.0, color: Colors.green, child:
-
-          new FlatButton(
-            onPressed: () {
-              this.loadRewarded();
-            },
-            child: new Text('Show Rewarded'),
-
-          )),
-          new Container(height:100.0, color: Colors.blue, child:new FlatButton(
-            onPressed: () {
-              this.loadInterstital();
-            },
-            child: new Text('Show Interstitial'),))
-
+          new Container(
+              height: 100.0,
+              color: Colors.green,
+              child: new FlatButton(
+                onPressed: () {
+                  this.loadRewarded();
+                },
+                child: new Text('Show Rewarded'),
+              )),
+          new Container(
+              height: 100.0,
+              color: Colors.blue,
+              child: new FlatButton(
+                onPressed: () {
+                  this.loadInterstital();
+                },
+                child: new Text('Show Interstitial'),
+              ))
         ])),
       ),
     ));
   }
 
   void loadInterstital() async {
-    bool loaded = await FlutterAppodeal
+    bool loaded = await FlutterAppodeal.instance
         .isLoaded(AppodealAdType.AppodealAdTypeInterstitial);
     if (loaded) {
-      FlutterAppodeal.showInterstitial();
-    }else{
+      FlutterAppodeal.instance.showInterstitial();
+    } else {
       print("No se ha cargado un Interstitial");
     }
   }
 
   void loadRewarded() async {
-    bool loaded = await FlutterAppodeal
+    bool loaded = await FlutterAppodeal.instance
         .isLoaded(AppodealAdType.AppodealAdTypeRewardedVideo);
     if (loaded) {
-      FlutterAppodeal.showRewardedVideo();
-    }else{
+      FlutterAppodeal.instance.showRewardedVideo();
+    } else {
       print("No se ha cargado un Rewarded Video");
     }
   }
