@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - Published May 11, 2018.
 
-* TODO: Describe initial release.
+* First Release: You can use, for now, Interstitials and Rewarded Videos. And there is a way to get notified for the RewardedVideos callbacks
