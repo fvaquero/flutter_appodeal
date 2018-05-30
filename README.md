@@ -1,6 +1,6 @@
 # flutter_appodeal
 
-A Flutter plugin for iOS and Android to use Appodel SDK in your apps
+A Flutter plugin for iOS and Android to use Appodeal SDK in your apps
 
 ## Getting Started
 
